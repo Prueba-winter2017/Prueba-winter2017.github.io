@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mi WEB Local winter 2017</title>
+
+  <!-- CSS  -->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+
+  <nav>
+    <div class="nav-wrapper indigo">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- contenido -->
+  <div class="container">
+    <h1 id="titulo">Todo list</h1>
+    <input id="input" type="text">
+    <!-- <button onclick="desdehtml()" id="btnAgregar">Agregar</button>
+    <button id="btnJS1">desde javascript1</button>
+    <button id="btnJS2">desde javascript2</button> -->
+    <button id="agregar">Agregar</button>
+
+    <ul id="board" class="collection">
+
+    </ul>
+  </div>
+
+<!--  Scripts-->
+<script src="js/jquery.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script>
+  var cont = 0;
+  agregar = () =>{
+    var  input = document.getElementById('input');
+    var board = document.getElementById('board');
+    board.innerHTML += `<li id='el${cont}' class="collection-item">
+      ${input.value} <button onclick="borrar('el${cont}')">
+        Borrar</button></li>
+      `;
+    input.value = "";
+    cont++;
+  }
+
+  borrar = (id) =>{
+    var element = document.getElementById(id);
+    element.outerHTML = "";
+  }
+
+  var button = document.getElementById('agregar');
+  button.onclick = agregar;
+  // var desdehtml = () =>{
+  //   console.log('evento desde html');
+  // }
+  // var desdeJS1 = () => {
+  //   console.log('desde JS 1');
+  // } 
+  // var desdeJS2 = () => {
+  //   console.log('desde JS 2');
+  // }
+  // var btnJS1 = document.getElementById('btnJS1'); 
+  // btnJS1.onclick = desdeJS1;
+  // var btnJS2 = document.getElementById('btnJS2');
+  // btnJS2.addEventListener('click',desdeJS2);
+</script>
+  </body>
+</html>
